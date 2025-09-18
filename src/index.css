@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -34,9 +34,36 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221 83% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* ClassGuard Design System */
+    --primary-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 45%));
+    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --glass-background: hsla(210 40% 98% / 0.8);
+    --glass-border: hsla(221 83% 53% / 0.2);
+    --success: 142 76% 36%;
+    --success-foreground: 355 7% 97%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
+
+    /* Security Status Colors */
+    --status-secure: 142 76% 36%;
+    --status-warning: 38 92% 50%;
+    --status-danger: 0 84.2% 60.2%;
+    --status-neutral: 215.4 16.3% 46.9%;
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsla(221 83% 53% / 0.1);
+    --shadow-primary: 0 10px 40px hsla(221 83% 53% / 0.3);
+    --shadow-card: 0 4px 6px hsla(0 0% 0% / 0.05);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -65,8 +92,8 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -82,7 +109,12 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 221 83% 53%;
+
+    /* Dark mode adjustments */
+    --glass-background: hsla(222.2 84% 4.9% / 0.8);
+    --glass-border: hsla(221 83% 53% / 0.3);
+    --shadow-glass: 0 8px 32px hsla(0 0% 0% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +133,46 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom utility classes */
+  .glass {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .primary-gradient {
+    background: var(--primary-gradient);
+  }
+
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .status-secure {
+    color: hsl(var(--status-secure));
+  }
+
+  .status-warning {
+    color: hsl(var(--status-warning));
+  }
+
+  .status-danger {
+    color: hsl(var(--status-danger));
+  }
+
+  .status-neutral {
+    color: hsl(var(--status-neutral));
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 }
